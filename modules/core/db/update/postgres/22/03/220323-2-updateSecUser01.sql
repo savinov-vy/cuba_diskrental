@@ -1,0 +1,1 @@
+update SEC_USER set DTYPE = 'diskrental_AppUser' where DTYPE is null ;

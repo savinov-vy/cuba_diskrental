@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://appUserDiskTook.caption"
+        focusComponent="appUserDisksTable"
+        messagesPack="com.company.diskrental.web.screens.appuserdisk">
+    <data readOnly="true">
+        <collection id="appUserDisksDc"
+                    class="com.company.diskrental.entity.AppUserDisk">
+            <view extends="_local">
+                <property name="appUser" view="_minimal"/>
+                <property name="disk" view="_minimal"/>
+            </view>
+            <loader id="appUserDisksDl">
+                <query>
+                    <![CDATA[select e from diskrental_AppUserDisk e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="appUserDisksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="appUserDisksTable"
+                dataLoader="appUserDisksDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="appUserDisksTable"
+                    width="100%"
+                    dataContainer="appUserDisksDc">
+            <actions>
+            </actions>
+            <columns>
+                <column id="appUser"/>
+                <column id="disk"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

@@ -3,5 +3,7 @@
     <persistence-unit name="diskrental" transaction-type="RESOURCE_LOCAL">
 
         <class>com.company.diskrental.entity.Disk</class>
+        <class>com.company.diskrental.entity.AppUser</class>
+        <class>com.company.diskrental.entity.AppUserDisk</class>
     </persistence-unit>
 </persistence>
